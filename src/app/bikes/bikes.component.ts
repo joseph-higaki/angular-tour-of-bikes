@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Bike} from '../bike'; 
+import {BIKES} from '../mock-bikes'; 
 
 @Component({
   selector: 'app-bikes',
@@ -7,14 +8,13 @@ import {Bike} from '../bike';
   styleUrls: ['./bikes.component.css']
 })
 export class BikesComponent implements OnInit {
-/*   let bike = new Bike();
-  bike.id = 1;
-  bike.name = "devinci"; */
+  bicicletas = BIKES;
+  selectedBike: Bike;
 
-  bike: Bike =  {
-    id: 1,
-    name: "devinci"
-  };
+  onSelectBike(bike: Bike) : void {
+    this.selectedBike = bike; 
+    console.log(this.selectedBike);
+  }
 
   constructor() { }
 
