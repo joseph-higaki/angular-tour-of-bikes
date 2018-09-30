@@ -11,13 +11,7 @@
       </ul>
     </td>
     <td>
-      <div *ngIf="selectedBike">
-        <h2>{{selectedBike.name | uppercase}} Details</h2>
-         <div> <span>id: </span>{{selectedBike.id}}</div> 
-        <label>name:
-          <input [(ngModel)]="selectedBike.name" placeholder="bike name">
-        </label>
-      </div>
+      <app-bike-detail [bike]="selectedBike"></app-bike-detail>
     </td>
   </tr>
 </table>
