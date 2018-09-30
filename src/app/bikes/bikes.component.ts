@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Bike} from '../bike'; 
-import {BIKES} from '../mock-bikes'; 
+import {BikeService} from '../bike.service'; 
 
 @Component({
   selector: 'app-bikes',
@@ -8,7 +8,7 @@ import {BIKES} from '../mock-bikes';
   styleUrls: ['./bikes.component.css']
 })
 export class BikesComponent implements OnInit {
-  bicicletas = BIKES;
+  bikes: Bike[];
   selectedBike: Bike;
 
   onSelectBike(bike: Bike) : void {
@@ -16,9 +16,15 @@ export class BikesComponent implements OnInit {
     console.log(this.selectedBike);
   }
 
-  constructor() { }
+  getBikes(): void{
+    this.bikeService.getBikes()
+      .subscribe(bikes => this.bikes = bikes);
+  }
+
+  constructor(private bikeService: BikeService) { }
 
   ngOnInit() {
+    this.getBikes();
   }
 
 }

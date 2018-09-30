@@ -3,7 +3,7 @@
   <tr>
     <td>
       <ul class="bikes">  
-        <li *ngFor="let bike of bicicletas"
+        <li *ngFor="let bike of bikes"
         [class.selected]="bike === selectedBike"
          (click)="onSelectBike(bike)">
           <span class="badge">{{bike.id}}</span> {{bike.name}}
