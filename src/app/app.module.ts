@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BikesComponent,
-    BikeDetailComponent
+    BikeDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
