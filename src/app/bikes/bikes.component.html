@@ -1,7 +1,24 @@
-<h2>{{bike.name | uppercase }} Details</h2>
-<div><span>id: </span>{{bike.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="bike.name" placeholder="bike name">
-  </label>
-</div>
+<h2>My bikes</h2>
+<table>
+  <tr>
+    <td>
+      <ul class="bikes">  
+        <li *ngFor="let bike of bicicletas"
+        [class.selected]="bike === selectedBike"
+         (click)="onSelectBike(bike)">
+          <span class="badge">{{bike.id}}</span> {{bike.name}}
+        </li>     
+      </ul>
+    </td>
+    <td>
+      <div *ngIf="selectedBike">
+        <h2>{{selectedBike.name | uppercase}} Details</h2>
+         <div> <span>id: </span>{{selectedBike.id}}</div> 
+        <label>name:
+          <input [(ngModel)]="selectedBike.name" placeholder="bike name">
+        </label>
+      </div>
+    </td>
+  </tr>
+</table>
+
