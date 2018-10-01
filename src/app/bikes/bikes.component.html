@@ -6,7 +6,9 @@
         <li *ngFor="let bike of bikes"
         [class.selected]="bike === selectedBike"
          (click)="onSelectBike(bike)">
-          <span class="badge">{{bike.id}}</span> {{bike.name}}
+          <a routerLink="/bike/{{bike.id}}">
+            <span class="badge">{{bike.id}}</span> {{bike.name}}
+          </a>
         </li>     
       </ul>
     </td>

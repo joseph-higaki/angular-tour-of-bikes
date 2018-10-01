@@ -12,8 +12,8 @@ export class BikesComponent implements OnInit {
   selectedBike: Bike;
 
   onSelectBike(bike: Bike) : void {
-    this.selectedBike = bike; 
-    console.log(this.selectedBike);
+    //this.selectedBike = bike; 
+  //  console.log(this.selectedBike);
   }
 
   getBikes(): void{
