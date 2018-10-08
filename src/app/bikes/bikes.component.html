@@ -1,4 +1,15 @@
 <h2>My bikes</h2>
+
+<div>
+  <label>Bike name:
+    <input #bikeName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(bikeName.value); bikeName.value=''">
+    add
+  </button>
+</div>
+
 <table>
   <tr>
     <td>
@@ -6,7 +17,11 @@
         <li *ngFor="let bike of bikes"
         [class.selected]="bike === selectedBike"
          (click)="onSelectBike(bike)">
-          <span class="badge">{{bike.id}}</span> {{bike.name}}
+          <a routerLink="/bike/{{bike.id}}">
+            <span class="badge">{{bike.id}}</span> {{bike.name}}
+          </a>
+          <button class="delete" title="delete bike"
+            (click)="delete(bike)">x</button>
         </li>     
       </ul>
     </td>
@@ -15,4 +30,6 @@
     </td>
   </tr>
 </table>
+
+
 
