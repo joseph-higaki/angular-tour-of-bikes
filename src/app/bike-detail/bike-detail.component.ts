@@ -34,4 +34,10 @@ export class BikeDetailComponent implements OnInit {
     this.getHero();
   }
 
+  save(): void {
+    this.bikeService.updateBike(this.bike)
+      .subscribe(() => this.goBack());
+  }
+
+
 }

@@ -9,7 +9,7 @@ import {BikeService} from '../bike.service';
 })
 export class BikesComponent implements OnInit {
   bikes: Bike[];
-  selectedBike: Bike;
+  //selectedBike: Bike;
 
   onSelectBike(bike: Bike) : void {
     //this.selectedBike = bike; 
@@ -25,6 +25,20 @@ export class BikesComponent implements OnInit {
 
   ngOnInit() {
     this.getBikes();
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.bikeService.addBike({ name } as Bike)
+      .subscribe(hero => {
+        this.bikes.push(hero);
+      });
+  }
+
+  delete(bike: Bike): void {
+    this.bikes = this.bikes.filter(b => b !== bike);
+    this.bikeService.deleteBike(bike).subscribe();
   }
 
 }

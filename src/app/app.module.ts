@@ -5,8 +5,13 @@ import { AppComponent } from './app.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
 import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule }    from '@angular/common/http';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+import { BikeSearchComponent } from './bike-search/bike-search.component';
 
 
 @NgModule({
@@ -15,12 +20,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BikesComponent,
     BikeDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    BikeSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

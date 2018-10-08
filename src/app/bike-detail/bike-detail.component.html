@@ -1,4 +1,4 @@
-<button (click)="goBack()">go back</button>
+
 <div *ngIf="bike">
     <h2>{{bike.name | uppercase}} Details</h2>
      <div> <span>id: </span>{{bike.id}}</div> 
@@ -6,3 +6,5 @@
       <input [(ngModel)]="bike.name" placeholder="bike name">
     </label>
   </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
